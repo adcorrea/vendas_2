@@ -15,6 +15,17 @@ public class Cliente {
     @Column(name = "nome", length = 100)
     private String nome;
 
+    public Cliente(){}
+
+    public Cliente(Integer id, String nome){
+        this.nome = nome;
+        this.id = id;
+    }
+
+    public Cliente(String nome){
+        this.nome = nome;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -29,5 +40,11 @@ public class Cliente {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Id: " + this.id.toString() + " Nome: " + nome;
     }
 }
