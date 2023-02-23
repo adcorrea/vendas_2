@@ -1,4 +1,4 @@
-package com.adcorreajr.vendas.domain.repositories;
+package com.adcorreajr.vendas.domain.repository;
 
 import com.adcorreajr.vendas.domain.entity.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;

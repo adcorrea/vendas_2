@@ -1,6 +1,7 @@
 package com.adcorreajr.vendas.domain.entity;
 
 import javax.persistence.*;
+import java.util.Set;
 
 
 @Entity
@@ -14,6 +15,16 @@ public class Cliente {
 
     @Column(name = "nome", length = 100)
     private String nome;
+
+
+    /*
+    Mapeamento para pedidos, não esta no modelo logico, mas essa tecnica é usada
+    para listar os pedidos do cliente.
+    O mappedBy tem a propriedade da classe Pedido que contem o relacionamento a classe Cliente
+    que no caso é o cliente.
+    */
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
+    private Set<Pedido> pedidos;
 
     public Cliente(){}
 
@@ -43,8 +54,18 @@ public class Cliente {
     }
 
 
+    public Set<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(Set<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
+
     @Override
     public String toString() {
+
         return "Id: " + this.id.toString() + " Nome: " + nome;
+                //+ " Pedido: " + pedidos;
     }
 }

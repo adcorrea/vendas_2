@@ -1,10 +1,29 @@
 package com.adcorreajr.vendas.domain.entity;
 
 
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
+@Table(name = "item_pedido")
 public class ItemPedido {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Integer id;
+
+    @ManyToOne
+    @JoinColumn(name = "pedido_id")
     private Pedido pedido;
+
+    @ManyToOne
+    @JoinColumn(name = "produto_id")
     private Produto produto;
+
+
+
+    @Column(name = "quantidade")
     private Integer quantidade;
 
     public Integer getId() {
@@ -37,5 +56,15 @@ public class ItemPedido {
 
     public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
+    }
+
+    @Override
+    public String toString() {
+        return "ItemPedido{" +
+                "id=" + id +
+                ", pedido=" + pedido.getId() +
+                ", produto=" + produto +
+                ", quantidade=" + quantidade +
+                '}';
     }
 }
