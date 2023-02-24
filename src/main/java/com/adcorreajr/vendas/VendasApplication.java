@@ -23,28 +23,22 @@ public class VendasApplication {
 
 
 	//CommandLineRunner executa blocos de codigo na inicialização do projeto. Util para testes.
+
+	/*
 	@Bean
 	public CommandLineRunner init(@Autowired ClienteRepository clienteRepository
 									, @Autowired PedidoRepository pedidoRepository){
 		return args -> {
 			System.out.println("Salvando clientes");
 
-			Cliente junior = new Cliente("Junior");
-			junior = clienteRepository.save(junior);
-
-			Pedido pedido = new Pedido();
-			pedido.setCliente(junior);
-			pedido.setDataPedido(LocalDate.now());
-			pedido.setTotal(BigDecimal.valueOf(100));
-
-			pedidoRepository.save(pedido);
-
-			Cliente cliente = clienteRepository.findClienteFechPedido(1);
-			System.out.println(cliente);
+			clienteRepository.save(new Cliente("Junior"));
 
 
 		};
 	}
+	*/
+
+
 
 }
 
