@@ -1,6 +1,9 @@
 package com.adcorreajr.vendas.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -8,6 +11,9 @@ import java.util.Set;
 
 @Entity
 @Table(name = "cliente")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Cliente {
 
     @Id
@@ -32,54 +38,9 @@ public class Cliente {
     @JsonIgnore
     private Set<Pedido> pedidos;
 
-    public Cliente(){}
-
     public Cliente(Integer id, String nome){
         this.nome = nome;
         this.id = id;
     }
 
-    public Cliente(String nome){
-        this.nome = nome;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-
-    public Set<Pedido> getPedidos() {
-        return pedidos;
-    }
-
-    public void setPedidos(Set<Pedido> pedidos) {
-        this.pedidos = pedidos;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    @Override
-    public String toString() {
-
-        return "Id: " + this.id.toString() + " Nome: " + nome;
-                //+ " Pedido: " + pedidos;
-    }
 }
