@@ -49,3 +49,12 @@ curl --location --request POST 'localhost:8080/api/pedidos/' \
 }
 ]
 }'
+
+
+PATH
+
+curl --location --request PATCH 'localhost:8080/api/pedidos/3' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+"novoStatus" : "CANCELADO"
+}'
