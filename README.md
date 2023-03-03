@@ -58,3 +58,24 @@ curl --location --request PATCH 'localhost:8080/api/pedidos/3' \
 --data-raw '{
 "novoStatus" : "CANCELADO"
 }'
+
+AUTORIZATION
+POST USER
+
+curl --location --request POST 'localhost:8080/api/usuarios' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+"login":"adcorrea",
+"senha":"1234",
+"admin":true
+}'
+
+
+POST TOKEN
+
+curl --location --request POST 'localhost:8080/api/usuarios/auth' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+"login" : "adcorrea",
+"senha" : "1234"
+}'
