@@ -7,7 +7,13 @@ Projeto do curso de Spring Boot Api Rest, Jpa e Jwt
     
     Docker
 
+    MariaDB com HSQL ou PowerBranch
+
 Comando para baixar e rodar o mariaDB
+
+
+NÃO FUNCIONA NESSA IMAGEM. PRECISA CONFIGURAR CONFORME DOCUMENTACAO.
+Use o mariadb.
 
 docker run --detach --name mariadb -p 3306:3306 --env MARIADB_USER=root --env MARIADB_PASSWORD=1234 --env MARIADB_ROOT_PASSWORD=1234  mariadb:latest
 

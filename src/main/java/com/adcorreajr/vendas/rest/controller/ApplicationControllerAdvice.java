@@ -2,6 +2,7 @@ package com.adcorreajr.vendas.rest.controller;
 
 import com.adcorreajr.vendas.exceptions.PedidoNaoEncontradoException;
 import com.adcorreajr.vendas.exceptions.RegraNegocioException;
+import com.adcorreajr.vendas.exceptions.SenhaInvalidaException;
 import com.adcorreajr.vendas.rest.ApiErrors;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -36,5 +37,12 @@ public class ApplicationControllerAdvice {
                 .map(erro -> erro.getDefaultMessage()).collect(Collectors.toList());
 
         return new ApiErrors(errors);
+    }
+
+
+    @ExceptionHandler(SenhaInvalidaException.class)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    public ApiErrors handleSenhaInvalidaException(SenhaInvalidaException ex){
+        return new ApiErrors(ex.getMessage());
     }
 }
