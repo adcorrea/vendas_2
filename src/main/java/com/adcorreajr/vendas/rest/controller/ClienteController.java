@@ -2,6 +2,7 @@ package com.adcorreajr.vendas.rest.controller;
 
 import com.adcorreajr.vendas.domain.entity.Cliente;
 import com.adcorreajr.vendas.domain.repository.ClienteRepository;
+import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
@@ -16,6 +17,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/clientes")
+@Api("Api Clientes")
 public class ClienteController {
 
 
@@ -24,7 +26,12 @@ public class ClienteController {
 
 
     @GetMapping("/{id}")
-    public Cliente getClienteById(@PathVariable Integer id){
+    @ApiOperation("Obter detalhes de um cliente.")
+    @ApiResponses({
+            @ApiResponse(code = 200,  message = "Cliente encontrado."),
+            @ApiResponse(code = 404, message = "Cliente não encontrado.")
+    })
+    public Cliente getClienteById(@PathVariable @ApiParam("Id do cliente") Integer id){
         return  clienteRepository
                 .findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não encontrado!"));
@@ -32,6 +39,12 @@ public class ClienteController {
 
     @PostMapping("/")
     @ResponseStatus(HttpStatus.CREATED)
+    @ApiOperation("Cria um cliente.")
+    @ApiResponses({
+            @ApiResponse(code = 201,  message = "Cliente gravado."),
+            @ApiResponse(code = 404, message = "Cliente não encontrado."),
+            @ApiResponse(code = 400, message = "Dados invalidos")
+    })
     public Cliente save(@RequestBody @Valid Cliente cliente){
         return clienteRepository.save(cliente);
     }

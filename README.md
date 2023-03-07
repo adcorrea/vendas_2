@@ -85,3 +85,9 @@ curl --location --request POST 'localhost:8080/api/usuarios/auth' \
 "login" : "adcorrea",
 "senha" : "1234"
 }'
+
+
+
+SWAGGER
+
+http://localhost:8080/swagger-ui.html
