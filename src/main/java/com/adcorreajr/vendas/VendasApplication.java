@@ -8,14 +8,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
+//Classe SpringBootServletInitializer faz com que a aplicação seja web (arquivo war)
+//precisa da dependencia do springboot.starter.tomcat
+
 @SpringBootApplication
-public class VendasApplication {
+public class VendasApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
 		SpringApplication.run(VendasApplication.class, args);

@@ -12,6 +12,8 @@
 	<artifactId>vendas</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>vendas</name>
+	<packaging>war</packaging>
+
 	<description>Projeto do curso de Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
@@ -39,6 +41,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>

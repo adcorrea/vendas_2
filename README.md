@@ -91,3 +91,13 @@ curl --location --request POST 'localhost:8080/api/usuarios/auth' \
 SWAGGER
 
 http://localhost:8080/swagger-ui.html
+
+
+comando para gerar JAR
+
+mvn clean package
+
+
+rodar o javr
+
+java -jar .\vendas-0.0.1-SNAPSHOT.jar
