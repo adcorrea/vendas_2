@@ -97,7 +97,11 @@ comando para gerar JAR
 
 mvn clean package
 
+com perfil
 
-rodar o javr
+mvn clean package -P dev ou prod
+
+
+rodar o jar
 
 java -jar .\vendas-0.0.1-SNAPSHOT.jar

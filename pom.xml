@@ -12,12 +12,32 @@
 	<artifactId>vendas</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>vendas</name>
-	<packaging>war</packaging>
+	<packaging>${packaging}</packaging>
 
 	<description>Projeto do curso de Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
+
+	<profiles>
+		<profile>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<id>dev</id>
+			<properties>
+				<packaging>jar</packaging>
+				<tomcat.scope>compile</tomcat.scope>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<packaging>war</packaging>
+				<tomcat.scope>provided</tomcat.scope>
+			</properties>
+		</profile>
+	</profiles>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -46,7 +66,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
+			<scope>${tomcat.scope}</scope>
 		</dependency>
 
 		<dependency>
